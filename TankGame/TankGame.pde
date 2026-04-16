@@ -16,5 +16,13 @@ void draw() {
 }
 
 void keyPressed() {
-  tank1.move();
+  if (key == 'w') {
+    tank1.move('w');
+  } else if (key == 's') {
+    tank1.move('s');
+  } else if (key == 'd') {
+    tank1.move('d');
+  } else if (key == 'a') {
+    tank1.move('a');
+  }
 }

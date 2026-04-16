@@ -1,10 +1,10 @@
-class Tank {
+class Obstacle {
   int x, y, w, h, speed, health;
   PImage iTankf, iTankl, iTankr, iTankd;
   char idir;
 
   // Constructor
-  Tank() {
+  Obstacle() {
     x = 100;
     y = 100;
     w = 100;
