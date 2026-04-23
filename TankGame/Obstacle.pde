@@ -8,7 +8,7 @@ class Obstacle {
     this.y=y;
     w = 50;
     h = 50;
-    speed = 1;
+    speed = 5;
     health = 50;
     obst1 = loadImage("Snek.png");
   }
@@ -19,7 +19,7 @@ class Obstacle {
   }
 
   void move() {
-    x = x +speed;
+    x = x + speed;
     if (y<0) {
       y = height;
     }

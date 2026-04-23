@@ -1,25 +1,32 @@
-//Ole Leimbach | Apr 14 2026 | TankGame
+// Ole Leimbach | Apr 14 2026 | TankGame
 PImage bg;
 Tank tank1;
 ArrayList<Obstacle> obstacles = new ArrayList<Obstacle>();
 ArrayList<Projectile> projectiles = new ArrayList<Projectile>();
 int score;
+Timer obsTimer;
 
 void setup() {
   size(500, 500);
   bg = loadImage("bg1.png");
   tank1 = new Tank();
-  obstacles.add(new Obstacle(250, 100));
-  obstacles.add(new Obstacle(50, 450));
-  obstacles.add(new Obstacle(350, 275));
+  //obstacles.add(new Obstacle(250, 100));
+  //obstacles.add(new Obstacle(50, 450));
+  //obstacles.add(new Obstacle(350, 275));
   score = 0;
+  obsTimer = new Timer(1000);
+  obsTimer.start();
 }
 
 void draw() {
   background(127);
   imageMode(CORNER);
   image(bg, 0, 0);
-  // Add Timer to distribute
+  // Add Timer to distribute obstacles
+  if (obsTimer.isFinished()) {
+    obstacles.add(new Obstacle(-100, int(random(height))));
+    obsTimer.start();
+  }
   //obstacles.add(new Obstacle(350, 250));
 
   // Displaying obstacles
