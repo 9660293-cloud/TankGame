@@ -18,4 +18,11 @@ class Projectile {
   void move() {
     y = y - speed;
   }
+
+  boolean reachedEdge() {
+
+    // Logic for when to return true
+
+    return x >= width+150 || x <= -150 || y > height +150 || y < -150;
+  }
 }

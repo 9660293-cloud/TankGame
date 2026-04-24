@@ -29,19 +29,26 @@ void draw() {
   }
   //obstacles.add(new Obstacle(350, 250));
 
-  // Displaying obstacles
+  // Displaying and removes obstacles
   for (int i = 0; i < obstacles.size(); i++) {
     Obstacle o = obstacles.get(i);
     o.display();
     o.move();
+    if (o.reachedEdge()) {
+      obstacles.remove(i);
+    }
   }
   // Displaying projectiles
   for (int i = 0; i < projectiles.size(); i++) {
     Projectile p = projectiles.get(i);
     p.display();
     p.move();
+    if (p.reachedEdge()) {
+      projectiles.remove(i);
+    }
   }
   tank1.display();
+
   scorePanel();
 }
 
