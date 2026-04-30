@@ -1,13 +1,13 @@
 class Obstacle {
   float x, y, w, h, speed, health;
-  PImage obst1;
+  PImage obj1;
   char idir;
 
   // Constructor
   Obstacle(float w, float h) {
     this.w = w;
     this.h = h;
-    speed = 5;
+    speed = 3;
     health = 100;
     if (int(random(4))==2) {
       idir = 'w';
@@ -26,12 +26,12 @@ class Obstacle {
       x = random(width);
       y = -100;
     }
-    obst1 = loadImage("Snek.png");
+    obj1 = loadImage("Snek.png");
   }
 
   void display() {
     imageMode(CENTER);
-    image(obst1, x, y);
+    image(obj1, x, y);
   }
 
   void move() {
@@ -48,6 +48,24 @@ class Obstacle {
     case 'd':
       x = x + speed;
       break;
+    }
+  }
+
+  boolean intersect(Projectile p) {
+    float distance = dist(x, y, p.x, p.y);
+    if (distance < 50) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  boolean intersect(Tank t) {
+    float distance = dist(x, y, t.x, t.y);
+    if (distance < 100) {
+      return true;
+    } else {
+      return false;
     }
   }
 
